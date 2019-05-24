@@ -1,0 +1,15 @@
+<form [formGroup]="form">
+
+  <ng-container *ngFor="let type of numberTypes">
+    <input type="radio" name="numberType" formControlName="numberType" [value]="type">
+    {{ type }}
+  </ng-container>
+  <br>
+  <input type="text" name="numberToConvert" formControlName="numberToConvert">
+
+  <button type="button" (click)="convert()">Convert to roman numeral</button>
+
+  <br>
+
+  <span>{{ conversionResult }}</span>
+</form>

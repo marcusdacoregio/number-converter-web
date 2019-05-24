@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    // "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -17,6 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "baseUrl": "src",
+    "paths": {
+      "@shared/*": ["app/shared/*"],
+      "@model/*": ["app/shared/model/*"],
+      "@core/*": ["app/core/*"],
+      "@number-converter/*": ["app/number-converter/*"],
+      "@environment/*": ["environments/*"],
+      "@utils/*": ["app/shared/utils/*"],
+    }
   }
 }
