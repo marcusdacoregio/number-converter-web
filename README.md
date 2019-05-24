@@ -1,6 +1,6 @@
 # NumberConverterWeb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+This project is a Angular application which provides a interface for interact with the number converter API.
 
 ## Development server
 
