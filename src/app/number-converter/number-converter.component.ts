@@ -8,7 +8,7 @@ import { NumberConversion } from '@shared/model/number-conversion';
 @Component({
   selector: 'app-number-converter',
   templateUrl: './number-converter.component.html',
-  styleUrls: ['./number-converter.component.css']
+  styleUrls: ['./number-converter.component.scss']
 })
 export class NumberConverterComponent {
 
@@ -17,6 +17,7 @@ export class NumberConverterComponent {
   numberTypes = Object.keys(NumberType);
 
   conversionResult: string = '';
+  conversionError: string = '';
 
   constructor(
     private numberConverterService: NumberConverterService,
@@ -38,8 +39,10 @@ export class NumberConverterComponent {
     this.numberConverterService.convertToRomanNumeral(numberConversion)
         .subscribe(conversionResult => {
           this.conversionResult = conversionResult.result;
+          this.conversionError = '';
         }, error => {
-          this.conversionResult = error;
+          this.conversionResult = '';
+          this.conversionError = error;
         });
   }
 

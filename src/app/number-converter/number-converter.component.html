@@ -1,15 +1,48 @@
-<form [formGroup]="form">
+<div class="d-flex justify-content-center align-items-center">
 
-  <ng-container *ngFor="let type of numberTypes">
-    <input type="radio" name="numberType" formControlName="numberType" [value]="type">
-    {{ type }}
-  </ng-container>
-  <br>
-  <input type="text" name="numberToConvert" formControlName="numberToConvert">
+  <div class="container w-50">
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <h4>Convert your number to roman numeral</h4>
+      </div>
+    </div>
 
-  <button type="button" (click)="convert()">Convert to roman numeral</button>
+    <div class="row">
+      <div class="col">
+        <form [formGroup]="form">
 
-  <br>
+          <div class="custom-control custom-radio custom-control-inline" *ngFor="let type of numberTypes">
+            <input type="radio" class="custom-control-input" name="numberType" formControlName="numberType" [value]="type" [id]="type">
+            <label class="custom-control-label" [for]="type">
+              {{ type }}
+            </label>
+          </div>
 
-  <span>{{ conversionResult }}</span>
-</form>
+          <div class="form-group">
+            <label for="numberToConvertInput">Number to convert</label>
+            <input type="text" id="numberToConvertInput" class="form-control" name="numberToConvert" formControlName="numberToConvert">
+          </div>
+
+          <div class="row">
+            <div class="col d-flex justify-content-center">
+              <button type="button" class="btn btn-primary" (click)="convert()">Convert to roman numeral</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col">
+        <strong class="conversion-result-text">
+          {{ conversionResult }}
+        </strong>
+        <div class="alert alert-danger" role="alert" *ngIf="conversionError">
+          {{ conversionError }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
