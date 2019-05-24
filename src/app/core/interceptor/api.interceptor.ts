@@ -33,9 +33,10 @@ export class ApiInterceptor implements HttpInterceptor {
 
     let message: string;
     if (httpError.error.errors) {
-      message = httpError.error.errors
-          .map(error => error.defaultMessage)
-          .join('\n');
+      const errorMessages: string[] = httpError.error.errors
+          .map(error => error.defaultMessage);
+
+      message = Array.from(new Set(errorMessages)).join('\n');
     } else {
       message = httpError.error.message;
     }

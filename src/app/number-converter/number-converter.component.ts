@@ -39,7 +39,7 @@ export class NumberConverterComponent {
         .subscribe(conversionResult => {
           this.conversionResult = conversionResult.result;
         }, error => {
-          alert(error);
+          this.conversionResult = error;
         });
   }
 
